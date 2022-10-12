@@ -48,7 +48,23 @@ class RestaurantTest {
     //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>ORDER VALUE<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    @Test
+    public void when_multiple_item_selected_order_price_should_calculated(){
+        List<Item> item = restaurant.getMenu();
+        assertEquals(388,restaurant.calculateOrderValue(item));
+    }
 
+    @Test
+    public void when_item_removed_from_the_selected_order(){
+
+        List<Item> item = restaurant.getMenu();
+        int total = restaurant.calculateOrderValue(item);
+        int afterTotal = item.get(1).getPrice();
+        item.remove(1);
+        assertEquals(total - afterTotal, restaurant.calculateOrderValue(item));
+    }
+    //<<<<<<<<<<<<<<<<<<<<<<<<<ORDER VALUE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
 
