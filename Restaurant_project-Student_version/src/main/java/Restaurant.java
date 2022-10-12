@@ -22,8 +22,9 @@ public class Restaurant {
             return true;
         }
         return false;
-
     }
+
+
 
     public LocalTime getCurrentTime(){ return  LocalTime.now(); }
 
@@ -31,13 +32,15 @@ public class Restaurant {
         return menu;
     }
 
-    private Item findItemByName(String itemName){
+    Item findItemByName(String itemName){
         for(Item item: menu) {
             if(item.getName().equals(itemName))
                 return item;
         }
         return null;
     }
+
+
 
     public void addToMenu(String name, int price) {
         Item newItem = new Item(name,price);
@@ -64,5 +67,7 @@ public class Restaurant {
     public String getName() {
         return name;
     }
+
+
 
 }
